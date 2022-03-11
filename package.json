@@ -4,6 +4,9 @@
   "description": "Website Test",
   "main": "server.js",
   "author": {
-    "name": ""
+    "name": "N4NO"
+  },
+  "dependencies": {
+    "express": "~4.17.3"
   }
 }

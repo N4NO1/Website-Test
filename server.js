@@ -1,8 +1,15 @@
 'use strict';
-var http = require('http');
-var port = process.env.PORT || 1337;
+const express = require('express')
+const api = express()
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
-}).listen(port);
+api.get('/', function (req, res) {
+    res.sendFile(__dirname + "/sign-in.html")
+})
+
+api.post('/signin', function (req, res) {
+    res.json({state: "accepted"})
+})
+
+
+
+api.listen(3000)
