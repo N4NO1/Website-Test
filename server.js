@@ -3,6 +3,7 @@ const express = require('express')
 const api = express()
 
 api.get('/', function (req, res) {
+    console.log("accessed")
     res.sendFile(__dirname + "/sign-in.html")
 })
 
@@ -12,4 +13,4 @@ api.post('/signin', function (req, res) {
 
 
 
-api.listen(3000)
+api.listen(3001)
