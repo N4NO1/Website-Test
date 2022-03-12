@@ -1,9 +1,11 @@
 'use strict'
 require('dotenv').config()
 
+const md5 = require('md5')
+const bodyParser = require('body-parser')
 const express = require('express')
 const api = express()
-const port = process.env.PORT || 80
+const port = process.env.PORT || 3000
 
 console.log("website server started on port:", port)
 
@@ -18,13 +20,13 @@ api.use(function (req,res,next) {
     next()
 })
 
-api.use()
+api.use(bodyParser.urlencoded({extended: false}))
 /*
  * GET handlers
  */
 
 api.get('/', function (req, res) {
-    res.sendFile(__dirname + "/sign-in.html")
+    res.sendFile(__dirname + "/html/sign-in.html")
 })
 
 /*
@@ -32,7 +34,11 @@ api.get('/', function (req, res) {
  */
 
 api.post('/signin', function (req, res) {
-    res.json({state: "accepted"})
+    res.json({
+        state: "accepted",
+        username: req.body.username,
+        passwordHash: md5(req.body.password)
+    })
 })
 
 

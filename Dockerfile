@@ -4,12 +4,16 @@ WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../
 COPY . .
-EXPOSE 80
+EXPOSE 3000
 RUN chown -R node /usr/src/app
 USER node
-CMD ["node server.js"]
+ENV PORT = 3000
 
-ENV PORT=80
+#start the service
+CMD "ifconfig"
+CMD ["node","server.js"]
+
+
 
 #confirm Installs
 RUN node -v
