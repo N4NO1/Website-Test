@@ -1,11 +1,31 @@
-'use strict';
+'use strict'
+require('dotenv').config()
+
 const express = require('express')
 const api = express()
+const port = process.env.PORT || 80
+
+console.log("website server started on port:", port)
+
+//app.use
+api.use("/css", express.static(__dirname + "/css"))
+
+api.use(function (req,res,next) {
+    console.log("Accessed ip " + req.ip, req.hostname + req.url)
+    next()
+})
+
+/*
+ * GET handlers
+ */
 
 api.get('/', function (req, res) {
-    console.log("accessed")
     res.sendFile(__dirname + "/sign-in.html")
 })
+
+/*
+ * POST handlers
+ */
 
 api.post('/signin', function (req, res) {
     res.json({state: "accepted"})
@@ -13,4 +33,4 @@ api.post('/signin', function (req, res) {
 
 
 
-api.listen(3001)
+api.listen(port)
