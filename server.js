@@ -7,7 +7,10 @@ const port = process.env.PORT || 80
 
 console.log("website server started on port:", port)
 
-//app.use
+/*
+ * Middleware
+ */
+
 api.use("/css", express.static(__dirname + "/css"))
 
 api.use(function (req,res,next) {
@@ -15,6 +18,7 @@ api.use(function (req,res,next) {
     next()
 })
 
+api.use()
 /*
  * GET handlers
  */
