@@ -5,7 +5,7 @@ const md5 = require('md5')
 const bodyParser = require('body-parser')
 const express = require('express')
 const api = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
 console.log("website server started on port:", port)
 

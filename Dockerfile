@@ -1,14 +1,15 @@
 FROM node:14-stretch
 
-COPY package.json .
+WORKDIR /usr/src/app
 
-WORKDIR /home/node/app
+COPY package*.json ./
 
+RUN npm install
 
 COPY . .
-EXPOSE 3000
+EXPOSE 8000
 USER node
-ENV PORT = 3000
+ENV PORT = 8000
 
 #start the service
 CMD ["node","server.js"]
