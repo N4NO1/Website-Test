@@ -3,18 +3,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>N4NO API</title>
     <link rel="stylesheet" href="/css/style.css" />
 </head>
+
 <body>
-    <h1>N4NO API</h1>
-    
-    <form action="/signin" method="post">
-        <label>Username</label><br />
-        <input type="text" name="username" /><br /><br />
-        <label>Password</label><br />
-        <input type="password" name="password" /><br /><br />
-        <input type="submit" />
-    </form>
+    <div>
+        <div class="header">
+            <h1>N4NO API</h1>
+        </div>
+        <div class="signin">
+            <form action="/signin" method="post">
+                <div class="inputs">
+                    <label>Username</label><br />
+                    <input type="text" name="username" /><br /><br />
+                    <label>Password</label><br />
+                    <input type="password" name="password" /><br /><br />
+                </div>
+                <div class="submit">
+                    <input type="submit" />
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

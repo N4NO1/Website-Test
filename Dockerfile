@@ -12,4 +12,4 @@ USER node
 ENV PORT = 8000
 
 #start the service
-CMD ["sudo node","server.js"]
+CMD ["node","server.js"]
