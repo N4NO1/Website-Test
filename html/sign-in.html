@@ -4,17 +4,19 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;   user-scalable=0;" name="viewport">
     <title>N4NO API</title>
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-<body>
-    <div class=centred>
-        <div class=header>
+<body width = "device-width">
+
+<app-signin class="centeredfield" _centered="">
+    <div class=login-wrapper>
+        <div class=logo>
             <h1>
                 <a href="">
-                    <img src="/images/logo.png" alt="N4NO API" class=headerimage/>
+                    <img src="/images/logo.png" alt="N4NO API" class="headerimage"/>
                 </a>
             </h1>
             
@@ -23,16 +25,17 @@
             <form action="/signin" method="post">
                 <div class="inputs">
                     <label>Username</label><br />
-                    <input type="text" name="username" class=text/><br />
+                    <input type="text" name="username" class="text"/><br />
                     <label>Password</label><br />
-                    <input type="password" name="password" class=text/><br />
+                    <input type="password" name="password" class="text"/><br />
                 </div>
                 <div class="submit">
-                    <input type="submit" />
+                    <input type="submit" value="Log In"/>
                 </div>
             </form>
         </div>
     </div>
+</app-signin>
     </div>
 </body>
 

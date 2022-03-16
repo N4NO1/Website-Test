@@ -29,7 +29,7 @@ api.use(bodyParser.urlencoded({extended: false}))
  */
 
 api.get('/', function (req, res) {
-    res.sendFile(__dirname + "/html/sign-in.html")
+    res.sendFile(__dirname + "/html/loading.html")
 })
 
 /*
