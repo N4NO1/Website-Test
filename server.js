@@ -15,12 +15,15 @@ console.log("website server started on port:", port)
 
 api.use("/css", express.static(__dirname + "/css"))
 
+api.use("/images", express.static(__dirname + "/images"))
+
 api.use(function (req,res,next) {
-    console.log("Accessed ip " + req.ip, req.hostname + req.url)
+    console.log(`Requester: [${req.ip}] Address: [${req.hostname}] Resource: [${req.url}]`)
     next()
 })
 
 api.use(bodyParser.urlencoded({extended: false}))
+
 /*
  * GET handlers
  */

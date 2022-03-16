@@ -9,35 +9,51 @@
 }
 
 body {
-    background-color: #222;
-    color: #ddd;
+    background-color: #111;
+    color: #fff;
     text-align: center;
     font-family: sans-serif;
 }
 
 h1 {
     font-size: 5vw;
-    margin: 7.5vw;
-    padding-bottom: 5vw;
-    justify-content: center;
-    align-items: center;
+}
+
+img.headerimage {
+    max-width: 100%;
+    height:auto;
 }
 
 input, label {
     margin-bottom: 1vw;
     margin-top: 0.5vw;
-    padding: 1vw 2vw;
-    border-radius: 0.5vw;
+    padding: 0.5vh 0.5vw;
+    border-radius:0.5vw;
 }
+
+input.text {
+    width: 25vw;
+}
+
 label {
     font-size: 1.25vw;
 }
 
-div.signin {
-margin: 0;
+
+
+div.centred {
+border: 2vw;
 position: absolute;
 top: 50%;
 left: 50%;
-margin-right: -50%;
+
 transform: translate(-50%,-50%);
+}
+
+div.header {
+    margin: 1vw
+}
+
+div.form { 
+    margin: 1vw
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +10,22 @@
 </head>
 
 <body>
-    <div>
-        <div class="header">
-            <h1>N4NO API</h1>
+    <div class=centred>
+        <div class=header>
+            <h1>
+                <a href="">
+                    <img src="/images/logo.png" alt="N4NO API" class=headerimage/>
+                </a>
+            </h1>
+            
         </div>
-        <div class="signin">
+        <div class=form>
             <form action="/signin" method="post">
                 <div class="inputs">
                     <label>Username</label><br />
-                    <input type="text" name="username" /><br /><br />
+                    <input type="text" name="username" class=text/><br />
                     <label>Password</label><br />
-                    <input type="password" name="password" /><br /><br />
+                    <input type="password" name="password" class=text/><br />
                 </div>
                 <div class="submit">
                     <input type="submit" />
@@ -27,5 +33,7 @@
             </form>
         </div>
     </div>
+    </div>
 </body>
+
 </html>
