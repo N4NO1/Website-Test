@@ -5,69 +5,15 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;   user-scalable=0;" name="viewport">
-    <title>N4NO API</title>
+    <title>N4NO API - Loading</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <meta http-equiv="refresh" content="2; url='/sign-in'" />
 </head>
 
-<style>
-    .app-loading-screen {
-        align-items: center;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        left: 0;
-        position: fixed;
-        right: 0;
-        top: 0;
-        z-index: 1;
-    }
-    .app-loading-screen-inner {
-        align-items: center;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        justify-content: center;
-        max-height: 90vw;
-        max-width: 90vw;
-        position: relative;
-        width: 250px;
-    }
-    .app-loading-screen-inner img {
-        margin: 0 0 40px;
-        width: 70%;
-        z-index: 2;
-    }
-
-    .loader,
-    .loader-inner {
-        height: 4px;
-        border-radius: 4px;
-    }
-    
-    .loader {
-        background: rgba(0,0,0,.1);
-        width: 100%;
-    }
-    .loader-inner {
-        animation: loader-anim infinite 2s;
-        background: #fff;
-    }
-
-    @keyframes loader-anim {
-        0% { width: 3%; margin-left: 0; }
-        25% { width: 100%; margin-left: 0; }
-        50% { width: 3%; margin-left: 97%; }
-        75% { width: 100%; margin-left: 0; }
-        100% { width: 3%; margin-left: 0; }
-    }
-
-</style>
 <body>
 
-    <div class="app-loading-screen">
-        <div class="app-loading-screen-inner">
+    <div class="app-screen-center">
+        <div class="app-screen-inner">
             <img src="/images/logo.png">
             <div class="loader"><div class="loader-inner"></div></div>
         </div>

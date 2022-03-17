@@ -1,11 +1,12 @@
 'use strict'
 require('dotenv').config()
 
+
+const handleCredentials = require('./js-modules/signInScript.js')
 const fs = require('fs')
 const md5 = require('md5')
 const bodyParser = require('body-parser')
 const express = require('express')
-const { path } = require('express/lib/application')
 const api = express()
 const port = process.env.PORT || 8000
 
@@ -15,48 +16,61 @@ console.log("website server started on port:", port)
  * Middleware
  */
 
+api.use("/js-modules", express.static(__dirname + "/js-modules"))
+
 api.use("/css", express.static(__dirname + "/css"))
 
 api.use("/images", express.static(__dirname + "/images"))
 
-api.use(function (req,res,next) {
-    console.log(`base ${getBaseUrl(req.url)}`)
+api.use(function (req, res, next) {
+    // console.log(`base ${getBaseUrl(req.url)}`)
     console.log(`Requester: [${req.ip}] Address: [${req.hostname}] Resource: [${req.url}]`)
     next()
 })
 
-api.use(bodyParser.urlencoded({extended: false}))
+api.use(bodyParser.urlencoded({ extended: false }))
 
 /*
  * GET handlers
  */
 
 api.get('/*', function (req, res) {
+    const baseurl = getBaseUrl(req.url)
 
-    if (getBaseUrl(req.url) = "") {
-        res.sendFile(__dirname + "/html/loading.html")
+    switch (baseurl) {
+
+        case "":
+            res.sendFile(__dirname + "/html/loading.html")
+            break;
+
+        case "favicon.ico":
+            res.sendFile(__dirname + "/favicon.ico")
+            break;
+
+        default:
+            const filepath = __dirname + `/html/${baseurl}.html`
+            if (fs.existsSync(filepath)) {
+                res.sendFile(filepath)
+            }
+            else {
+                res.statusCode = 404
+                res.sendFile(__dirname + "/html/404.html")
+            }
+        break;
+
     }
 
-
-    const filepath = __dirname + `/html/${getBaseUrl(req.url)}.html`
-    if(fs.existsSync(filepath)){
-        res.sendFile(filepath)
-    } else{
-        res.sendFile(__dirname + "/404.html")
-    }
-
-    
 })
+
 
 /*
  * POST handlers
  */
 
-api.post('/signin', function (req, res) {
+api.post('/credentials', function (req, res) {
+    res.statusCode = 202
     res.json({
-        state: "accepted",
-        username: req.body.username,
-        passwordHash: md5(req.body.password)
+        "authenticationToken": handleCredentials(req.body.username, req.body.password)
     })
 })
 
@@ -68,5 +82,5 @@ api.listen(port)
 function getBaseUrl(url = "") {
     const pathParts = url.split("/")
 
-    return pathParts[pathParts.length -1]
+    return pathParts[pathParts.length - 1]
 }
