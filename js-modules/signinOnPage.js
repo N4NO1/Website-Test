@@ -14,8 +14,13 @@ const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 
 
 form.addEventListener('submit', (event) => {
-
     event.preventDefault();
+
+    emailInput.style.borderColor = "#FFF"
+    passwordInput.style.borderColor = "#FFF"
+    userError.innerHTML = ""
+    passError.innerHTML = ""
+
     const emailValid = validateEmail(emailInput.value.trim())
     const passwordValid = validatePassword(passwordInput.value.trim())
 
