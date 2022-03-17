@@ -44,10 +44,6 @@ input.text {
     width: 15vw;
 }
 
-label {
-    font-size: 1.25vw;
-}
-
 div.login-wrapper {
     display: flex;
 }
