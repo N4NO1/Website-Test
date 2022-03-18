@@ -22,7 +22,7 @@ api.use("/css", express.static(__dirname + "/css"))
 
 api.use("/images", express.static(__dirname + "/images"))
 
-api.use(function (req, res, next) {
+api.use((req, res, next) => {
     console.log(`Requester: [${req.ip}] Address: [${req.hostname}] Resource: [${req.url}]`)
     next()
 })
@@ -34,7 +34,11 @@ api.use(function (req, res, next) {
  * GET handlers
  */
 
-api.get('/*', function (req, res) {
+// api.get('/users/:userId', (req, res) => {
+
+// })
+
+api.get('/*', (req, res) => {
     const baseurl = getBaseUrl(req.url)
 
     switch (baseurl) {
