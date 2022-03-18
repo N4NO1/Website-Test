@@ -9,12 +9,12 @@ const passwordInput = document.getElementById('password');
 const request = new XMLHttpRequest();
 
 
-const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     emailInput.style.borderColor = "#FFF"
     passwordInput.style.borderColor = "#FFF"
@@ -34,12 +34,24 @@ form.addEventListener('submit', (event) => {
         }
 
         //send response for credentials
+        // fetch({
+        //     url: "/credentials",
+        //     method: "POST",
+        //     body: JSON.stringify(creds)
+        // })
+        // .then(result => console.log(result.body))
+        // .catch(error => console.error(error))
 
+        
         request.open("post", "/credentials")
+        request.setRequestHeader("Content-Type", "application/json")
         request.send(JSON.stringify(creds))
         request.onload = function () {
-            if(request.status == 202 && this.responeText != "") {
+            if(request.status == 202 && this.responseText != "") {
             console.log(this.responseText)
+            location.assign("/user/"+ JSON.parse(this.responseText).userId)
+            } else if (request.status = 401) {
+                
             }
         }
     }

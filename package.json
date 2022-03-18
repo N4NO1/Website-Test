@@ -7,7 +7,6 @@
     "name": "N4NO"
   },
   "dependencies": {
-    "body-parser": "^1.4.3",
     "dotenv": "^16.0.0",
     "express": "~4.17.3",
     "fs": "^0.0.1-security",
