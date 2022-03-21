@@ -94,7 +94,7 @@ api.post('/credentials', async (req, res) => {
             default:
                 res.statusCode = 202
                 res.json({
-                    userId: credentials
+                    "userId": credentials
                 })
             break;
         }

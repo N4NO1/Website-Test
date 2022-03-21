@@ -41,7 +41,7 @@ form.addEventListener('submit', async (event) => {
         })
 
         if (credResponse.status == 202 && credResponse.body !="") {
-            location.assign(`/user/${JSON.parse(credResponse.body).userId}`)
+            location.assign(`/user/${(await credResponse.json()).userId}`)
         }
         else if (credResponse.status == 401) {
             formErrorDiv.style.backgroundColor = "#FF0000"
