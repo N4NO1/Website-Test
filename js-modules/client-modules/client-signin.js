@@ -2,18 +2,17 @@ const form = document.getElementById('credentialsform');
 
 const userError = document.getElementById('user-error');
 const passError = document.getElementById('pass-error');
+const formError = document.getElementById('form-error');
+const formErrorDiv = document.getElementById('form-error-div');
 
 const emailInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
-
-const request = new XMLHttpRequest();
-
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault()
 
     emailInput.style.borderColor = "#FFF"
@@ -33,27 +32,35 @@ form.addEventListener('submit', (event) => {
             password:passwordInput.value.trim()
         }
 
-        //send response for credentials
-        // fetch({
-        //     url: "/credentials",
-        //     method: "POST",
-        //     body: JSON.stringify(creds)
-        // })
-        // .then(result => console.log(result.body))
-        // .catch(error => console.error(error))
+        const credResponse = await fetch("/credentials", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(creds)
+        })
+
+        if (credResponse.status == 202 && credResponse.body !="") {
+            location.assign(`/user/${JSON.parse(credResponse.body).userId}`)
+        }
+        else if (credResponse.status == 401) {
+            formErrorDiv.style.backgroundColor = "#FF0000"
+            formError.style.color = "FFFFFF"
+            formError.innerHTML = "Username and Password did not match"
+        } 
+        else if(credResponse.status == 404) {
+            formErrorDiv.style.backgroundColor = "#FF0000"
+            formError.style.color = "FFFFFF"
+            formError.innerHTML = "Username does not exist"
+        }
+        else {
+            formErrorDiv.style.backgroundColor = "#FF0000"
+            formError.style.color = "FFFFFF"
+            formError.innerHTML = credResponse.body
+        }
+
 
         
-        request.open("post", "/credentials")
-        request.setRequestHeader("Content-Type", "application/json")
-        request.send(JSON.stringify(creds))
-        request.onload = function () {
-            if(request.status == 202 && this.responseText != "") {
-            console.log(this.responseText)
-            location.assign("/user/"+ JSON.parse(this.responseText).userId)
-            } else if (request.status = 401) {
-                
-            }
-        }
     }
     else {
         if(emailValid != 1) {

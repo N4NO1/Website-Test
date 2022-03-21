@@ -18,11 +18,11 @@
         <div class="app-screen-inner">
             <img src="/images/logo.png">
             <div class=form>
-                <form id="credentialsform">
+                <form id="registration-form">
                     <div class="inputs">
                         <div class="field-div">
-                            <label for="username">Email</label><br />
-                            <input type="text" name="username" class="text" id="username" /><br>
+                            <label for="email">Email</label><br />
+                            <input type="text" name="email" class="text" id="email" /><br>
                             <small id="user-error"></small>
                             <br />
                         </div>
@@ -32,13 +32,17 @@
                             <small id="pass-error"></small>
                             <br />
                         </div>
+                        <div class="field-div">
+                            <label for="password-confirm">Confirm Password</label><br />
+                            <input type="password" name="password-confirm" class="text" id="password-confirm" /><br>
+                            <small id="pass-confirm-error"></small>
+                            <br />
+                        </div>
                     </div>
                     <div class="submit">
                         <input type="submit" value="Log In" style="font-family: sans-serif;" />
                     </div>
-                    <div style="margin-top: 2vh;">
-                        <u><h4><a href="/register-user">Register a User</a></h4></u>
-                    </div>
+                    
                 </form>
             </div>
 
@@ -48,4 +52,4 @@
 
 </body>
 
-<script src="/js-modules/client-signin.js"></script>
+<script src="/js-modules/client-register.js"></script>
