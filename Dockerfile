@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 EXPOSE 8000
-USER node
+
 ENV PORT = 8000
 
 #start the service
