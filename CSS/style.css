@@ -68,7 +68,8 @@ div.error {
     display: flex;
     width: 100vw;
     height: 3vh;
-    color: #fff
+    color: #fff;
+    font-family: sans-serif;
 }
 
 [_centered] {

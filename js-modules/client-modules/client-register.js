@@ -28,7 +28,7 @@ form.addEventListener('submit', async (event) => {
     const emailValid = validateEmail(emailInput.value.trim())
     const passwordValid = validatePassword(passwordInput.value.trim(), passwordConfirmInput.value.trim())
 
-    
+
     if (emailValid == 1 && passwordValid == 1) {
 
         const details = {
@@ -36,7 +36,7 @@ form.addEventListener('submit', async (event) => {
             password: passwordInput.value.trim()
         }
 
-        const registerResponse = await fetch("/register", {
+        const registerResponse = await fetch("/register-user", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,23 +44,23 @@ form.addEventListener('submit', async (event) => {
             body: JSON.stringify(details)
         })
 
-        if (registerResponse.status == 201 && registerResponse.body !="") {
+        if (registerResponse.status == 201 && registerResponse.body != "") {
             location.assign(`/register-success?${JSON.parse(registerResponse.body).email}`)
         }
         else {
             formErrorDiv.style.backgroundColor = "#FF0000"
             formError.style.color = "FFFFFF"
-            formError.innerHTML = JSON.parse(registerResponse.body).error ?? "Error while creating user."
+            formError.innerHTML = `${registerResponse.status}: ${await registerResponse.text() ?? "Error while creating user."}`
         }
 
     }
     else {
-        if(emailValid != 1) {
+        if (emailValid != 1) {
             userError.innerHTML = emailValid
             emailInput.style.borderColor = "#FF0000"
             console.error(emailValid)
         }
-        if(passwordValid !=1 ){
+        if (passwordValid != 1) {
             passError.innerHTML = passwordValid === "Please Confirm the Password" ? "" : passwordValid
             passConfirmError.innerHTML = passwordValid
             passwordInput.style.borderColor = passwordValid === "Please Confirm the Password" ? "#FFF" : "#F00"
@@ -92,7 +92,7 @@ function validatePassword(passwordToValidate, passwordConfirm) {
     else if (passwordToValidate != "" && passwordConfirm == "") {
         return "Please Confirm the Password";
     }
-    else if(passwordToValidate != passwordConfirm) {
+    else if (passwordToValidate != passwordConfirm) {
         return "Passwords Do Not Match";
     }
     return 1;

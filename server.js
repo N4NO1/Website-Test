@@ -3,6 +3,7 @@ require('dotenv').config()
 
 
 const handleCredentials = require('./js-modules/server-modules/server-signIn.js')
+const createUser = require('./js-modules/server-modules/server-register')
 const fs = require('fs')
 const express = require('express')
 const api = express()
@@ -13,6 +14,14 @@ console.log("website server started on port:", port)
 /* 
  * Middleware
  */
+
+//can be used to block IP addresses
+// api.use((req,res, next) =>{
+//     if(req.ip =="::ffff:10.230.133.161") {
+//         res.send("Blocked")
+//     }
+//     else {next()}
+// })
 
 api.use(express.json())
 
@@ -99,7 +108,14 @@ api.post('/credentials', async (req, res) => {
 
 })
 
-
+api.post('/register-user', async (req,res) => {
+    try {
+        userCreated = await createUser(req.body)
+    }
+    catch {
+        res.sendStatus(500)
+    }
+})
 
 api.listen(port)
 
