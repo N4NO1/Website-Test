@@ -132,6 +132,7 @@ api.listen(port)
 
 function getBaseUrl(url = "") {
     const pathParts = url.split("/")
+    const endPath = pathParts[pathParts.length -1].split("?")[0]
 
-    return pathParts[pathParts.length - 1]
+    return endPath
 }
