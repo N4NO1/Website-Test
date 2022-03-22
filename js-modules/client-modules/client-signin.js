@@ -7,10 +7,13 @@ const formErrorDiv = document.getElementById('form-error-div');
 
 const emailInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
+const params = new URLSearchParams(window.location.search)
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-
+function loaded() {
+    emailInput.value = params.get("email")
+}
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault()

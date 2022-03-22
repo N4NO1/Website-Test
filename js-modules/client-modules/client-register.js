@@ -45,7 +45,7 @@ form.addEventListener('submit', async (event) => {
         })
 
         if (registerResponse.status == 201) {
-            location.assign(`/register-success?${emailInput.value.trim()}`)
+            location.assign(`/register-success?email=${emailInput.value.trim()}&state=User`)
         }
         else {
             formErrorDiv.style.backgroundColor = "#FF0000"
