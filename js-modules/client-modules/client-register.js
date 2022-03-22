@@ -44,13 +44,13 @@ form.addEventListener('submit', async (event) => {
             body: JSON.stringify(details)
         })
 
-        if (registerResponse.status == 201 && registerResponse.body != "") {
-            location.assign(`/register-success?${JSON.parse(registerResponse.body).email}`)
+        if (registerResponse.status == 201) {
+            location.assign(`/register-success?${emailInput.value.trim()}`)
         }
         else {
             formErrorDiv.style.backgroundColor = "#FF0000"
             formError.style.color = "FFFFFF"
-            formError.innerHTML = `${registerResponse.status}: ${await registerResponse.text() ?? "Error while creating user."}`
+            formError.innerHTML = `${(registerResponse.status === 400 ? "" : registerResponse.status + ":")} ${(await registerResponse.text()) ?? "Error while creating user."}`
         }
 
     }

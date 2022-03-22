@@ -110,10 +110,20 @@ api.post('/credentials', async (req, res) => {
 
 api.post('/register-user', async (req,res) => {
     try {
-        userCreated = await createUser(req.body)
+        const userCreated = await createUser(req.body)
+        if (userCreated.status == "success") {
+            res.statusCode = userCreated.code
+            res.json({userId: userCreated.message})
+        }
+        else {
+            res.statusCode = userCreated.code
+            res.json(userCreated.message)
+        }
     }
-    catch {
-        res.sendStatus(500)
+    catch (e) {
+        res.statusCode = 500
+        console.log(e)
+        res.send(e)
     }
 })
 
