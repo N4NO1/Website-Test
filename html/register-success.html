@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-<body>
+<body onload="loaded()">
     <div class="error" id="form-error-div">
         <h3 id="form-error"></h3>
     </div>
@@ -18,7 +18,12 @@
         <div class="app-screen-inner">
             <img src="/images/logo.png">
 
-            <h1 id="message"></h1>
+            <h2 id="message"></h2>
+            <div style="margin-top: 2vh;">
+                <u>
+                    <h4><a id="link" href="/sign-in?"">Sign In</a></h4>
+                </u>
+            </div>
 
         </div>
 
