@@ -5,7 +5,7 @@ div.main-content {
     justify-content:flex-start;
     align-items: left;
     display: flex;
-    width: 84vw;
+    width: 100%;
     height: 85vh;
     color: #111;
     font-family: sans-serif;
