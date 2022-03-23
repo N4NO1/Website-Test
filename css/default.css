@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-color: #fff;
+    color: #111;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div.body {
+    flex-direction:row ;
+    background-color: #111;
+    justify-content:space-evenly;
+    align-items: center;
+    display: flex;
+    color: #fff;
+    font-family: sans-serif;
+}

@@ -1,0 +1,17 @@
+img.header {
+    max-height: 11vh;
+    width: auto;
+}
+
+div.top-bar {
+    padding: 2vh 3vw 2vh 3vw;
+    flex-direction:row ;
+    background-color: #111;
+    justify-content:space-between;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 15vh;
+    color: #fff;
+    font-family: sans-serif;
+}

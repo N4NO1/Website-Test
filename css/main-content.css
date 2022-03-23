@@ -1,0 +1,13 @@
+div.main-content {
+    padding: 3vh 2vw ;
+    flex-direction:column ;
+    background-color:#fff;
+    justify-content:flex-start;
+    align-items: left;
+    display: flex;
+    width: 85vw;
+    height: 85vh;
+    color: #111;
+    font-family: sans-serif;
+    text-align: left;
+}

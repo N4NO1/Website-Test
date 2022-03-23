@@ -1,0 +1,13 @@
+div.left-column {
+    padding: 3vh 1vw 3vh 1vw;
+    flex-direction:column ;
+    background-color: #111;
+    justify-content:flex-start;
+    align-items: center;
+    display: flex;
+    width: 15vw;
+    height: 85vh;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+}
