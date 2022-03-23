@@ -7,32 +7,44 @@
     <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;   user-scalable=0;" name="viewport">
     <title>N4NO API</title>
     <link rel="stylesheet" href="/css/default.css" />
-    <link rel="stylesheet" href="/css/top-bar.css" />
     <link rel="stylesheet" href="/css/left-column.css" />
     <link rel="stylesheet" href="/css/main-content.css" />
+    <link rel="stylesheet" href="/css/right-column.css" />
 </head>
 
 <body>
 
-    <div class="top-bar">
-        <div name="left-logo">
-            <img src="/images/logo.png" class="header">
-        </div>
-    </div>
-
-    <div class="body">
+    <div class="app-screen">
         <div class="left-column" include-html="/left-menu">
-            
+
         </div>
 
-        <div class="main-content">
-            <h1>test</h1>
-            <h1>test2</h1>
+        <div class="right-column">
+            <div class="top-bar">
+
+            </div>
+            <div class="body">
+                <div class="body-header">
+                    <h1>test</h1>
+                </div>
+
+                <div class="item-holder">
+                    <div class="body-flexitem">
+                        <h1>test</h1>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
+
+
+
+
 </body>
 
 <script src="/js-modules/client-includeHTMLInline.js"></script>
 <script>
-includeHTML();
+    includeHTML();
 </script>

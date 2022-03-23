@@ -43,9 +43,9 @@ api.use((req, res, next) => {
  * GET handlers
  */
 
-// api.get('/users/:userId', (req, res) => {
-
-// })
+api.get('/user-home/:userId', (req, res) => {
+    res.sendFile(__dirname + "/html/user-home.html")
+})
 
 api.get('/*', (req, res) => {
     const baseurl = getBaseUrl(req.url)

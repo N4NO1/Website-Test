@@ -12,12 +12,12 @@ body {
     font-family: sans-serif;
 }
 
-div.body {
+div.app-screen {
     flex-direction:row ;
-    background-color: #111;
+    background-color: #fff;
     justify-content:flex-start;
-    align-items: center;
+    align-items: left;
     display: flex;
-    color: #fff;
+    color: #111;
     font-family: sans-serif;
 }

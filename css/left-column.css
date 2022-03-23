@@ -1,10 +1,11 @@
 div.left-column {
-    padding: 0vh 1vw 0vh 0vw;
-    flex-direction:column ;
+    padding: 1vh 1vw 0vh;
+    flex-direction:row ;
     background-color: #111;
-    width: 5vw;
-    height: 90vh;
+    width: 17vw;
+    height: 100vh;
     color: #fff;
     font-family: sans-serif;
     text-align: left;
+    display:flex;
 }
